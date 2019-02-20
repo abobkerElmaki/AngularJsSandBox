@@ -1,7 +1,6 @@
-import angular from "angular";
-import angularRoute from "angular-route";
+
 angular
-  .module("angularApp", [angularRoute, "mainController"])
+  .module("angularApp", ['ngRoute','mainController'])
   .config(function($routeProvider) {
     $routeProvider.when("/", {
       templateURL: "./index.html",

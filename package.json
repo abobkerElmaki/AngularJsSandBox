@@ -1,8 +1,4 @@
 {
-  "name": "angularjs",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.html",
   "dependencies": {
     "@angular/material": "6.4.0",
     "angular": "1.7.2",
@@ -11,8 +7,12 @@
     "mdi": "latest",
     "node": "10.7.0"
   },
+  "description": "",
   "devDependencies": {
     "parcel-bundler": "^1.6.1"
   },
-  "keywords": []
+  "keywords": [ ],
+  "main": "index.html",
+  "name": "angularjs",
+  "version": "1.0.0"
 }
