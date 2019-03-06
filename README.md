@@ -4,5 +4,5 @@ System to provide simple way to generate bill from multi options for different o
 List of Item . <br/>
 Specify the required quantity.<br/>
 confiure item depend on demand.<br/>
-List all iteam selected with specifc options <br/>
+List all iteam selected with specific options <br/>
 Save Bill infromation in [firbase](https://firebase.google.com/) <br/>
