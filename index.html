@@ -2,21 +2,28 @@
 <html>
 
 <head>
-	<title>AngularJS</title>
+	<title>Resturant Orders</title>
 	<meta charset="UTF-8" />
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
-    <script src="scripts/mainController.js"></script>
+    <script src="scripts/app.js"></script>
 </head>
+<body ng-app="angularApp">
+    <div class="col-md-12">
+        <div class="row">
+            <nav class="navbar navbar-default" role="navigation" >
+                <div class="container-fluid" >
+                    <div class="navbar-header" >
+                        <a class="navbar-brand"  href="#">Resturant Order System</a>
+                    </div>
+                </div>
+            </nav>
 
-<body ng-app="angularApp" ng-init="message = 'Hello World!'">
-	<h1>{{ message }}</h1>
-	<p ng-controller="mainController"> created by{{MyName}} </p>
-
-	<script src="scripts/app.js">
-
-	</script>
+        </div>
+    </div>
+	
+	
+	
 
 
 </body>
