@@ -1,14 +1,24 @@
 ﻿<!DOCTYPE html>
-<html>
+<html ng-app="ResturantController" >
 
 <head>
 	<title>Resturant Orders</title>
 	<meta charset="UTF-8" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="scripts/app.js"></script>
+    <script>
+    $(document).ready(function () {
+        $("#myTab a").click(function (e) {
+            e.preventDefault();
+            $(this).tab('show');
+        });
+    });
+    </script>
 </head>
-<body ng-app="angularApp">
+<body data-ng-controller="ResturantController">
     <div class="col-md-12">
         <div class="row">
             <nav class="navbar navbar-default" role="navigation">
@@ -55,11 +65,10 @@
                         </ul>
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active" id="drink">
-                                <button class="btn btn-primary btn-pos btn-marginTop" > Tea</button>
-                                <button class="btn btn-primary btn-pos btn-marginTop"> Coffe</button>
+                                <button class="btn btn-warning btn-pos btn-marginTop" data-ng-repeat="item in drinks" data-ng-bind="item.title"></button>
                             </div>
                             <div role="tabpanel" class="tab-pane" id="food">
-                                <button class="btn btn-warning btn-pos btn-marginTop"  ></button>
+                                <button class="btn btn-warning btn-pos btn-marginTop" data-ng-repeat="item in foods" data-ng-bind="item.title"></button>
                             </div>
                           
                         </div>

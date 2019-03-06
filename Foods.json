@@ -1,0 +1,28 @@
+﻿[  
+   {  
+      "title":"Cheese Burger",
+      "price":20,
+      "Picks":[  
+         "cheese",
+         " Salad",
+         "Hotsauce"
+      ]
+   },
+   {  
+      "title":"Beef Burger",
+      "price":15,
+      "Picks":[  
+         "Salad",
+         "Hotsauce"
+      ]
+   },
+   {  
+      "title":"Big Tasty",
+      "price":30,
+      "Picks":[  
+         "Salad",
+         "Hotsauce",
+         "mayonnaise"
+      ]
+   }
+]
