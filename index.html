@@ -65,20 +65,33 @@
                         </ul>
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active" id="drink">
-                                <button class="btn btn-warning btn-pos btn-marginTop" data-ng-repeat="item in drinks" data-ng-bind="item.title"></button>
+                                <button class="btn btn-warning btn-pos btn-marginTop" data-ng-repeat="item in drinks" data-ng-bind="item.title" ></button>
+                              
                             </div>
-                            <div role="tabpanel" class="tab-pane" id="food">
-                                <button class="btn btn-warning btn-pos btn-marginTop" data-ng-repeat="item in foods" data-ng-bind="item.title"></button>
+                            <div  role="tabpanel" class="tab-pane" id="food">
+                                <button class="btn btn-warning btn-pos btn-marginTop" data-ng-repeat="item in foods" data-ng-bind="item.title"  ng-click="ShowPicks(item)"></button>
+
+                                <div ng-show="pick" class="panel panel-primary">
+                                    <div class="panel-body">
+                                        <div ng-repeat="picks in itemOrder.Picks">
+                                            <div class="action-checkbox"> 
+                                                <input  type="checkbox"    ng-click="toggleSelection(picks)"  />
+                                                {{picks}}
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-warning" data-ng-click="addToOrder(itemOrder,1)">Order</button>
+                                       </div>
+                                    </div>
+                                    </div>
+
+                                </div>
                             </div>
-                          
-                        </div>
-                    </div>
                     <div class="panel-footer"></div>
                 </div>
             </div>
         </div>
     </div>
-
+   
 
 
 
