@@ -1,28 +1,32 @@
-﻿[  
-   {  
-      "title":"Cheese Burger",
-      "price":20,
-      "Picks":[  
-         "cheese",
-         " Salad",
-         "Hotsauce"
-      ]
-   },
-   {  
-      "title":"Beef Burger",
-      "price":15,
-      "Picks":[  
-         "Salad",
-         "Hotsauce"
-      ]
-   },
-   {  
-      "title":"Big Tasty",
-      "price":30,
-      "Picks":[  
-         "Salad",
-         "Hotsauce",
-         "mayonnaise"
-      ]
-   }
+﻿[
+  {
+    "id"   : 1,
+    "title": "Cheese Burger",
+    "price": 20,
+    "Picks": [
+      "cheese",
+      " Salad",
+      "sauce"
+    ]
+  },
+  {
+
+    "id": 2,
+   "title": "Beef Burger",
+    "price": 15,
+    "Picks": [
+      "pickle",
+      "Hotsauce"
+    ]
+  },
+  {
+     "id": 3,
+    "title": "Big Tasty",
+    "price": 30,
+    "Picks": [
+      "bake",
+      "flour",
+      "mayonnaise"
+    ]
+  }
 ]

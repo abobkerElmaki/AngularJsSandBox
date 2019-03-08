@@ -5,30 +5,9 @@
 	<title>Resturant Orders</title>
 	<meta charset="UTF-8" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
-
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
-    <script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyBLU1r8VrFB1FBwDlg4fXYs07mF4Y8DTwQ",
-    authDomain: "resturant-bill.firebaseapp.com",
-    databaseURL: "https://resturant-bill.firebaseio.com",
-    projectId: "resturant-bill",
-    storageBucket: "",
-    messagingSenderId: "647208347805"
-  };
-  firebase.initializeApp(config);
-    </script>
-
-    <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
-
     <script src="scripts/app.js"></script>
     <script>
     $(document).ready(function () {
@@ -52,16 +31,6 @@
 
         </div>
     </div>
-  
-
-   
-
-
-
-
-
-
-
     <div class="col-md-12">
         <div class="row">
             <div class="col-md-6">
@@ -78,22 +47,20 @@
                             Nothing ordered yet!
                         </div>
                         <ul class="list-group">
-                            <li class="list-group-item" ng-repeat="item in  order track by $index">
+                            <li class="list-group-item" ng-repeat="item in order">
                                 <div class="row">
                                     <div class="col-md-1">
                                         <span class="badge badge-left" ng-bind="item.qty"></span>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-4">
                                         {{item.title}}
                                     </div>
-                                   
                                     <div class="col-md-1">
-                                        <div class="label label-success">{{item.price * item.qty | currency:"SAR":0}}</div>
+                                        <div class="label label-success">{{item.price * item.qty | currency:"USD$":0}}</div>
                                     </div>
                                     <div class="col-md-1 col-md-push-1">
-                                        <div class="label label-warning">{{item.price | currency:"SAR":0}}</div>
+                                        <div class="label label-warning">{{item.price | currency:"USD$":0}}</div>
                                     </div>
-                                    
                                     <div class="col-md-2 col-md-push-2">
                                         <button class="btn btn-success btn-xs" ng-click="addToOrder(item,1)">
                                             <span class="glyphicon glyphicon-plus"></span>
@@ -112,7 +79,7 @@
                         </ul>
                     </div>
                     <div class="panel-footer" ng-show="order.length">
-                        <h3><span class="label label-primary">Total: {{getTotal() | currency:"SAR ":0}}</span></h3>
+                        <h3><span class="label label-primary">Total: {{getTotal() | currency:"USD $ ":0}}</span></h3>
                     </div>
                     <div class="panel-footer" ng-show="order.length">
                         <div>
@@ -131,7 +98,7 @@
                         </ul>
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active" id="drink">
-                                <button class="btn btn-warning btn-pos btn-marginTop" data-ng-repeat="item in drinks" data-ng-bind="item.title" data-ng-click="addToOrder(item,1)" ></button>
+                                <button class="btn btn-warning btn-pos btn-marginTop" data-ng-repeat="item in drinks" data-ng-bind="item.title" ></button>
                               
                             </div>
                             <div  role="tabpanel" class="tab-pane" id="food">
@@ -139,14 +106,14 @@
 
                                 <div ng-show="pick" class="panel panel-primary">
                                     <div class="panel-body">
-                                        <div ng-repeat="picks in itemSelect.Picks">
+                                        <div ng-repeat="picks in itemOrder.Picks">
                                             <div class="action-checkbox"> 
                                                 <input  type="checkbox"    ng-click="toggleSelection(picks)"  />
                                                 {{picks}}
                                             </div>
                                          
                                         </div>
-                                        <button class="btn btn-warning" data-ng-click="addToOrder(itemSelect,1)">Order</button>
+                                        <button class="btn btn-warning" data-ng-click="addToOrder(itemOrder,1)">Order</button>
                                        </div>
                                     </div>
                                     </div>
@@ -159,101 +126,6 @@
         </div>
     </div>
    
-
-
-    <div id="orderPDF" class="container">
-        <div class="card">
-            <div class="card-header">
-                Invoice
-                <strong>Date: {{getDate()}}</strong>
-                <span class="float-right"> <strong>Status:</strong> Pending</span>
-
-            </div>
-            <div class="card-body">
-                <div class="row mb-4">
-
-
-                    <div class="col-sm-6">
-
-                        <div>
-                            <strong>User Info</strong>
-                        </div>
-                        <div>Attn: Bkry</div>
-                        <div>Dmmamm,SA</div>
-                        <div>Email: bkry2010@live.com</div>
-                        <div>Phone: +966568156372</div>
-
-                    </div>
-
-
-
-                </div>
-
-                <div class="table-responsive-sm">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th class="center">#</th>
-                                <th>Item</th>
-                                <th>Description</th>
-
-                                <th class="right">Unit Cost</th>
-                                <th class="center">Qty</th>
-
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr ng-repeat="item in  order track by $index">
-                                <td class="center">{{$index+1}}</td>
-                                <td class="left strong">{{item.title}}</td>
-                                <td class="left">{{item.picks}}</td>
-
-                                <td class="right">{{item.price}}</td>
-                                <td class="center">1</td>
-                            </tr>
-
-                        </tbody>
-                    </table>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4 col-sm-5">
-
-                    </div>
-
-                    <div class="col-lg-4 col-sm-5 ml-auto" style="text-align:left">
-                        <table class="table table-clear">
-                            <tbody>
-                                <tr>
-                                    <td class="left">
-                                        <strong>Subtotal</strong>
-                                    </td>
-                                    <td class="right">{{getTotal()}}</td>
-                                </tr>
-                                <tr></tr>
-                                <tr>
-                                    <td class="left">
-                                        <strong>VAT (5%)</strong>
-                                    </td>
-                                    <td class="right">{{getVat()}}</td>
-                                </tr>
-                                <tr>
-                                    <td class="left">
-                                        <strong>Total</strong>
-                                    </td>
-                                    <td class="right">
-                                        <strong>{{getFinalPrice()}}</strong>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-    </div>
 
 
 

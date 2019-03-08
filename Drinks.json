@@ -1,15 +1,16 @@
-﻿[  
-   {  
-      "title":"Water",
-      "price":2
+﻿[
+  {
+    "id": 6,
+    "title": "Water",
+    "price": 2
 
-   },
-   {  
-      "title":"Tea",
-      "price":25
+  },
+  {   "id": 7,
+    "title": "Tea",
+    "price": 25
 
-   },
-   {  
+  },
+   {  "id": 8,
       "title":"Hot Chocolate",
       "price":30
 
