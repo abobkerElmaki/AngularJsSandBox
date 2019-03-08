@@ -1,17 +1,8 @@
 {
-  "dependencies": {
-    "@angular/material": "6.4.0",
-    "angular": "1.7.2",
-    "angular-route": "1.6.9",
-    "http-server": "0.11.1",
-    "mdi": "latest",
-    "node": "10.7.0"
-  },
+  "dependencies": {},
   "description": "",
-  "devDependencies": {
-    "parcel-bundler": "^1.6.1"
-  },
-  "keywords": [ ],
+  "devDependencies": {},
+  "keywords": [],
   "main": "index.html",
   "name": "angularjs",
   "version": "1.0.0"
